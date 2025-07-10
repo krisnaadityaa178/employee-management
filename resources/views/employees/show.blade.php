@@ -9,60 +9,72 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold">Detail Karyawan</h3>
+                        <div class="flex space-x-3">
+                            <a href="{{ route('employees.edit', $employee) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                Edit
+                            </a>
+                            <a href="{{ route('employees.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                                Kembali
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h3 class="text-lg font-semibold mb-4">Informasi Karyawan</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-700 mb-4">Informasi Dasar</h4>
                             
-                            <div class="space-y-4">
+                            <div class="space-y-3">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">ID Karyawan</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->employee_id }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">ID Karyawan</label>
+                                    <p class="text-lg font-mono bg-blue-100 px-2 py-1 rounded">{{ $employee->employee_id }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Nama</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->name }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Nama Lengkap</label>
+                                    <p class="text-lg">{{ $employee->name }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Email</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->email }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Email</label>
+                                    <p class="text-lg">{{ $employee->email }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Telefon</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->phone }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Telefon</label>
+                                    <p class="text-lg">{{ $employee->phone }}</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <h3 class="text-lg font-semibold mb-4">Informasi Pekerjaan</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-700 mb-4">Informasi Pekerjaan</h4>
                             
-                            <div class="space-y-4">
+                            <div class="space-y-3">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Departemen</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->department }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Departemen</label>
+                                    <p class="text-lg">{{ $employee->department }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Posisi</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->position }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Posisi</label>
+                                    <p class="text-lg">{{ $employee->position }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Gaji</label>
-                                    <p class="mt-1 text-sm text-gray-900">Rp {{ number_format($employee->salary, 0, ',', '.') }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Gaji</label>
+                                    <p class="text-lg font-semibold text-green-600">Rp {{ number_format($employee->salary, 0, ',', '.') }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Tanggal Masuk</label>
-                                    <p class="mt-1 text-sm text-gray-900">{{ $employee->hire_date->format('d/m/Y') }}</p>
+                                    <label class="block text-sm font-medium text-gray-600">Tanggal Masuk</label>
+                                    <p class="text-lg">{{ $employee->hire_date->format('d F Y') }}</p>
                                 </div>
-
+                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Status</label>
-                                    <span class="mt-1 inline-flex px-2 py-1 text-xs font-semibold rounded-full 
+                                    <label class="block text-sm font-medium text-gray-600">Status</label>
+                                    <span class="inline-flex px-3 py-1 text-sm font-medium rounded-full 
                                         @if($employee->status === 'active') bg-green-100 text-green-800
                                         @elseif($employee->status === 'cuti') bg-yellow-100 text-yellow-800
                                         @else bg-red-100 text-red-800
@@ -74,13 +86,22 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 flex justify-end space-x-3">
-                        <a href="{{ route('employees.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                            Kembali
-                        </a>
-                        <a href="{{ route('employees.edit', $employee) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Edit
-                        </a>
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700 mb-2">Informasi Tambahan</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="font-medium">Lama Bekerja:</span>
+                                <span class="ml-2">{{ $employee->hire_date->diffForHumans() }}</span>
+                            </div>
+                            <div>
+                                <span class="font-medium">Data Dibuat:</span>
+                                <span class="ml-2">{{ $employee->created_at->format('d F Y H:i') }}</span>
+                            </div>
+                            <div>
+                                <span class="font-medium">Terakhir Diupdate:</span>
+                                <span class="ml-2">{{ $employee->updated_at->format('d F Y H:i') }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

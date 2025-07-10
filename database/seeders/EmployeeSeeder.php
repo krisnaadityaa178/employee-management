@@ -12,7 +12,7 @@ class EmployeeSeeder extends Seeder
     {
         $employees = [
             [
-                'employee_id' => 'EMP001',
+                'employee_id' => 'EMP01',
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
                 'phone' => '081234567890',
@@ -23,7 +23,7 @@ class EmployeeSeeder extends Seeder
                 'status' => 'active'
             ],
             [
-                'employee_id' => 'EMP002',
+                'employee_id' => 'EMP02',
                 'name' => 'Jane Smith',
                 'email' => 'jane@example.com',
                 'phone' => '081234567891',
@@ -34,7 +34,7 @@ class EmployeeSeeder extends Seeder
                 'status' => 'active'
             ],
             [
-                'employee_id' => 'EMP003',
+                'employee_id' => 'EMP03',
                 'name' => 'Bob Johnson',
                 'email' => 'bob@example.com',
                 'phone' => '081234567892',
@@ -45,7 +45,7 @@ class EmployeeSeeder extends Seeder
                 'status' => 'cuti'
             ],
             [
-                'employee_id' => 'EMP004',
+                'employee_id' => 'EMP04',
                 'name' => 'Alice Brown',
                 'email' => 'alice@example.com',
                 'phone' => '081234567893',
@@ -56,7 +56,7 @@ class EmployeeSeeder extends Seeder
                 'status' => 'berhenti'
             ],
             [
-                'employee_id' => 'EMP005',
+                'employee_id' => 'EMP05',
                 'name' => 'Charlie Wilson',
                 'email' => 'charlie@example.com',
                 'phone' => '081234567894',
